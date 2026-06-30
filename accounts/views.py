@@ -1,11 +1,11 @@
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
 
-if not User.objects.filter(username="admin").exists():
-    User.objects.create_superuser(
-        username="figleaf",
-        email="figleaf@gmail.com",
-        password="figleaf"
-    )
+# if not User.objects.filter(username="admin").exists():
+#     User.objects.create_superuser(
+#         username="figleaf",
+#         email="figleaf@gmail.com",
+#         password="figleaf"
+    # )
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
