@@ -25,7 +25,12 @@ SECRET_KEY = 'django-insecure-gv3q8oksc_w_#es_si3_t@_dwh(=_@^l!v&pn=9#g=a&oyds$z
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = [
+    "figleaf.onrender.com",
+    "127.0.0.1",
+    "localhost",
+]
 
 
 # Application definition
