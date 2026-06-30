@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block title %}Customers{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-header">
+    <div>
+        <h2>Customers</h2>
+        <p>Manage pool inspection customers.</p>
+    </div>
+
+    <a href="{% url 'add_customer' %}" class="btn btn-success btn-lg">
+        + Add Customer
+    </a>
+</div>
+
+{% for message in messages %}
+    <div class="alert alert-success">{{ message }}</div>
+{% endfor %}
+
+<div class="content-card">
+
+    <form method="GET" class="mb-4">
+        <div class="input-group">
+            <input type="text"
+                   name="search"
+                   class="form-control"
+                   placeholder="Search customer by name"
+                   value="{{ search }}">
+
+            <button class="btn btn-outline-primary" type="submit">
+                Search
+            </button>
+        </div>
+    </form>
+
+    <table class="table table-hover align-middle">
+        <thead>
+            <tr>
+                <th>Customer</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Suburb</th>
+                <th>Created</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for customer in customers %}
+            <tr>
+                <td><strong>{{ customer.name }}</strong></td>
+                <td>{{ customer.phone|default:"-" }}</td>
+                <td>{{ customer.email|default:"-" }}</td>
+                <td>{{ customer.suburb|default:"-" }}</td>
+                <td>{{ customer.created_at|date:"d M Y" }}</td>
+                <td>
+                    <a href="{% url 'customer_detail' customer.id %}" class="btn btn-sm btn-outline-primary">
+                        View
+                    </a>
+
+                    <a href="#" class="btn btn-sm btn-success">
+                        New Inspection
+                    </a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6">No customers found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+{% endblock %}

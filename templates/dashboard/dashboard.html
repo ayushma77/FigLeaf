@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-header">
+    <div>
+        <h2>Dashboard</h2>
+        <p>Start and manage pool inspections.</p>
+    </div>
+
+    <a href="#" class="btn btn-success btn-lg">+ Start New Inspection</a>
+</div>
+
+<div class="row g-4">
+    <div class="col-md-4">
+        <div class="info-card">
+            <h5>Customers</h5>
+            <h2>0</h2>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="info-card">
+            <h5>Draft Inspections</h5>
+            <h2>0</h2>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="info-card">
+            <h5>Completed Reports</h5>
+            <h2>0</h2>
+        </div>
+    </div>
+</div>
+
+<div class="content-card mt-4">
+    <h4>Recent Inspections</h4>
+    <p class="text-muted">No inspections yet.</p>
+</div>
+
+{% endblock %}

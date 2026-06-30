@@ -1,0 +1,37 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Figleaf Login</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+
+<body>
+
+<div class="login-wrapper">
+    <div class="login-card">
+
+        <img src="{% static 'images/figleaf-logo.png' %}" class="logo">
+
+        <h2>Pool Inspection System</h2>
+        <p>Sign in to continue</p>
+
+        {% for message in messages %}
+            <div class="error">{{ message }}</div>
+        {% endfor %}
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+
+            <button type="submit">Login</button>
+        </form>
+
+    </div>
+</div>
+
+</body>
+</html>

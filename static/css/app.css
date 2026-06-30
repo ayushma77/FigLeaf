@@ -1,0 +1,71 @@
+body {
+    margin: 0;
+    background: #f4f7fb;
+    font-family: Arial, sans-serif;
+}
+
+.app-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 260px;
+    background: #0f3557;
+    color: white;
+    padding-top: 20px;
+}
+
+.brand {
+    text-align: center;
+    padding: 20px;
+}
+
+.brand img {
+    max-width: 120px;
+    margin-bottom: 10px;
+}
+
+.sidebar a {
+    display: block;
+    padding: 14px 25px;
+    color: white;
+    text-decoration: none;
+}
+
+.sidebar a:hover {
+    background: #16806a;
+}
+
+.main-content {
+    flex: 1;
+}
+
+.topbar {
+    height: 70px;
+    background: white;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.page-content {
+    padding: 30px;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.info-card,
+.content-card {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}

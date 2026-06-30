@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Customer Details{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-header">
+    <div>
+        <h2>{{ customer.name }}</h2>
+        <p>Customer profile and inspection history.</p>
+    </div>
+
+    <div>
+        <a href="{% url 'customer_list' %}" class="btn btn-outline-secondary">
+            Back
+        </a>
+
+        <a href="#" class="btn btn-success">
+            + New Inspection
+        </a>
+    </div>
+</div>
+
+<div class="row g-4">
+
+    <div class="col-md-5">
+        <div class="content-card">
+            <h4>Customer Details</h4>
+
+            <p><strong>Phone:</strong> {{ customer.phone|default:"-" }}</p>
+            <p><strong>Email:</strong> {{ customer.email|default:"-" }}</p>
+            <p><strong>Address:</strong> {{ customer.address|default:"-" }}</p>
+            <p><strong>Suburb:</strong> {{ customer.suburb|default:"-" }}</p>
+            <p><strong>State:</strong> {{ customer.state|default:"-" }}</p>
+            <p><strong>Postcode:</strong> {{ customer.postcode|default:"-" }}</p>
+            <p><strong>Notes:</strong> {{ customer.notes|default:"-" }}</p>
+        </div>
+    </div>
+
+    <div class="col-md-7">
+        <div class="content-card">
+            <h4>Inspection History</h4>
+            <p class="text-muted">No inspections yet.</p>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

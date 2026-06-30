@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %}New Inspection{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-header">
+    <div>
+        <h2>New Pool Inspection</h2>
+        <p>Step 1 of 15 — General Information</p>
+    </div>
+
+    <span class="badge bg-primary fs-6">Draft</span>
+</div>
+
+<div class="progress mb-4">
+    <div class="progress-bar" style="width: 7%;">
+        Step 1 / 15
+    </div>
+</div>
+
+<div class="content-card">
+    <form method="POST">
+        {% csrf_token %}
+
+        <div class="row">
+
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Customer</label>
+                <select name="customer" class="form-select" required>
+                    <option value="">Select Customer</option>
+
+                    {% for customer in customers %}
+                        <option value="{{ customer.id }}">
+                            {{ customer.name }} — {{ customer.address }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="col-md-3 mb-3">
+                <label class="form-label">Inspection Date</label>
+                <input type="date" name="inspection_date" class="form-control" required>
+            </div>
+
+            <div class="col-md-3 mb-3">
+                <label class="form-label">Inspector Name</label>
+                <input type="text" name="inspector_name" class="form-control" required>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Reference</label>
+                <input type="text" name="reference" class="form-control">
+            </div>
+
+        </div>
+
+        <div class="text-end">
+            <button type="submit" class="btn btn-success btn-lg">
+                Save & Continue →
+            </button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

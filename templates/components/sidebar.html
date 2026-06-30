@@ -1,0 +1,17 @@
+{% load static %}
+
+<aside class="sidebar">
+    <div class="brand">
+        <img src="{% static 'images/figleaf-logo.png' %}">
+        <h5>Figleaf</h5>
+    </div>
+
+    <a href="{% url 'dashboard' %}">🏠 Dashboard</a>
+    <a href="{% url 'customer_list' %}">👥 Customers</a>
+    <a href="{% url 'add_customer' %}">➕ Add Customer</a>
+    <a href="{% url 'create_inspection' %}">📝 New Inspection</a>
+    <a href="{% url 'inspection_list' %}">📋 Inspection History</a>
+    <a href="#">📄 Reports</a>
+    <a href="#">⚙ Settings</a>
+    <a href="{% url 'logout' %}">🚪 Logout</a>
+</aside>

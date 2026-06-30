@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-header">
+    <div>
+        <h2>{{ title }}</h2>
+        <p>Enter customer details for pool inspection records.</p>
+    </div>
+
+    <a href="{% url 'customer_list' %}" class="btn btn-outline-secondary">
+        Back to Customers
+    </a>
+</div>
+
+<div class="content-card">
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <div class="row">
+
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Customer Name</label>
+                {{ form.name }}
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Phone</label>
+                {{ form.phone }}
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Email</label>
+                {{ form.email }}
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Suburb</label>
+                {{ form.suburb }}
+            </div>
+
+            <div class="col-md-8 mb-3">
+                <label class="form-label">Address</label>
+                {{ form.address }}
+            </div>
+
+            <div class="col-md-2 mb-3">
+                <label class="form-label">State</label>
+                {{ form.state }}
+            </div>
+
+            <div class="col-md-2 mb-3">
+                <label class="form-label">Postcode</label>
+                {{ form.postcode }}
+            </div>
+
+            <div class="col-md-12 mb-3">
+                <label class="form-label">Notes</label>
+                {{ form.notes }}
+            </div>
+
+        </div>
+
+        <button type="submit" class="btn btn-success btn-lg">
+            {{ button_text }}
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}
